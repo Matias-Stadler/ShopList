@@ -24,7 +24,7 @@ class ProductTest extends TestCase
     }
 
     public function test_CheckIfCanDeleteEntryInProductWithApi(){
-        $product = Product::factory(1)->create();
+        $product = Product::factory(2)->create();
 
         $response = $this->delete(route('apidestroy',1));
         $this->assertDatabaseCount('products',1);
@@ -58,7 +58,7 @@ class ProductTest extends TestCase
                  ->assertJsonCount(1)
                  ->assertJsonFragment($data);
 
-        $response = $this->put('/api/products/6', [
+        $response = $this->put('/api/products/1', [
             'product' => 'naranja',
         ]);
 
