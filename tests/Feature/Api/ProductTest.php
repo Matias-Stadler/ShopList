@@ -68,4 +68,15 @@ class ProductTest extends TestCase
                  ->assertJsonCount(1)
                  ->assertJsonFragment($data);
     }
+
+    public function test_CheckIfCanDeleteAllEntryInProductWithApi(){
+        $product = Product::factory(5)->create();
+
+        $response = $this->delete(route('apidestroyall'));
+        $this->assertDatabaseCount('products',0);
+
+        $response = $this->get(route('apihome'));
+
+        $response->assertJsonCount(0);
+    }
 }
