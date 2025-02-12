@@ -24,14 +24,14 @@ class ProductTest extends TestCase
     }
 
     public function test_CheckIfCanDeleteEntryInProductWithApi(){
-        $product = Product::factory(2)->create();
+        $product = Product::factory(1)->create();
 
         $response = $this->delete(route('apidestroy',1));
-        $this->assertDatabaseCount('products',2);
+        $this->assertDatabaseCount('products',1);
 
         $response = $this->get(route('apihome'));
 
-        $response->assertJsonCount(2);
+        $response->assertJsonCount(1);
     }
 
     public function test_CheckIfCanCreateNewEntryInProductWithJsonFile(){
