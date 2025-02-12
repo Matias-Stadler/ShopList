@@ -83,7 +83,7 @@ class ProductController extends Controller
     /**
      * Remove all resource from storage.
      */
-    public function destroyAll()
+    public function destroylist()
     {
         //
         $product = Product::all();

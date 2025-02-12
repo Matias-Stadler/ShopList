@@ -8,4 +8,4 @@ Route::get('/products',[ProductController::class,'index'])->name('apihome');
 Route::delete('/products/{id}',[ProductController::class,'destroy'])->name('apidestroy');
 Route::post('/products', [ProductController::class,'store'])->name('apistore');
 Route::put('/products/{id}',[ProductController::class, 'update'])->name('apiupdate');
-Route::delete('/products',[ProductController::class, 'destroyAll'])->name('apidestroyall');
+Route::delete('/products',[ProductController::class, 'destroylist'])->name('apidestroylist');
